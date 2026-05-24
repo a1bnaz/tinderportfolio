@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import CardScreen from './pages/CardScreen'
 import './App.css'
 
 function App() {
-
   return (
-    <div>hello!</div>
+    <CardScreen />
   )
 }
 
