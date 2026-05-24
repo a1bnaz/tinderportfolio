@@ -170,6 +170,7 @@ export default function Card() {
                   src={photo}
                   alt={`Profile photo ${index + 1}`}
                   className="w-full h-full object-cover"
+                  draggable={false}
                 />
               </div>
             ))}
@@ -177,7 +178,7 @@ export default function Card() {
         </div>
 
         {/* Slide indicator bars */}
-        <div className="absolute top-2.5 left-3 right-3 z-20 flex gap-0.5">
+        <div className="absolute top-2.5 left-3 right-3 z-20 flex gap-0.5 pointer-events-none">
           {photos.map((_, index) => (
             <div
               key={index}
@@ -191,11 +192,11 @@ export default function Card() {
         {/* Active badge moved below (positioned relative to name) */}
 
         {/* Gradient Overlay for text */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/35 to-transparent h-44" />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/35 to-transparent h-44 pointer-events-none" />
 
         {/* Name and Title (badge positioned relative to this block) */}
-        <div className="absolute bottom-8 left-0 right-0 px-4 z-10">
-          <div className="relative">
+        <div className="absolute bottom-8 left-0 right-0 px-4 z-10 pointer-events-none">
+          <div className="relative pointer-events-none">
             <span className="absolute left-0 top-0 -translate-y-6 transform inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold shadow-sm border border-emerald-200">Active</span>
             <h2 className="text-4xl text-white">
               <span className="font-bold">Albert</span>
