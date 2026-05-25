@@ -30,7 +30,7 @@ export default function Phone({ children }) {
           {/* Screen with notch */}
           <div className="relative w-full h-full bg-white rounded-[36px] sm:rounded-[48px] overflow-hidden flex flex-col">
             {/* Notch */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 sm:w-36 h-7 sm:h-8 bg-black rounded-b-3xl z-10" />
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 sm:w-36 h-6 sm:h-8 bg-black rounded-b-3xl z-10" />
             
             {/* Status Bar */}
             <div className="relative h-10 bg-white flex items-center justify-between px-5 sm:px-6 text-black text-xs font-semibold pt-2 border-b border-black/5">

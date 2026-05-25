@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Flame, Heart, Search, Settings, Sparkles, UserRound, MessageCircle, X } from 'lucide-react';
 
-export default function Card() {
+export default function Card({ onMatch }) {
   const photos = [
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=700&fit=crop',
     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=700&fit=crop',
@@ -221,8 +221,8 @@ export default function Card() {
             <X className="w-8 h-8 text-red-500" strokeWidth={4} />
           </button>
 
-          {/* Like Button */}
-          <button className="w-16 h-16 rounded-full bg-white hover:bg-white transition-transform duration-300 ease-out transform-gpu hover:scale-110 hover:rotate-12 active:scale-95 active:rotate-0 flex items-center justify-center shadow-lg hover:shadow-xl border border-black/5 cursor-not-allowed">
+          {/* Like Button (triggers match for demo) */}
+          <button onClick={() => onMatch && onMatch()} className="w-16 h-16 rounded-full bg-white hover:bg-white transition-transform duration-300 ease-out transform-gpu hover:scale-110 hover:rotate-12 active:scale-95 active:rotate-0 flex items-center justify-center shadow-lg hover:shadow-xl border border-black/5">
             <Heart className="w-8 h-8 text-green-500 fill-green-500" strokeWidth={3} />
           </button>
         </div>
