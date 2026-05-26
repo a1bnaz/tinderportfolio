@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import { profilePhoto1 } from '../lib/profilePhotos';
 
-export default function Match({ photo = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop', onView }) {
+export default function Match({ photo = profilePhoto1 || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop', onView }) {
   const canvasRef = useRef(null);
   const progressRafRef = useRef(null);
   const viewTimeoutRef = useRef(null);

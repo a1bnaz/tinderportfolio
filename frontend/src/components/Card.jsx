@@ -1,15 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Flame, Heart, Search, Settings, Sparkles, UserRound, MessageCircle, X } from 'lucide-react';
+import { profilePhotos } from '../lib/profilePhotos';
 
 export default function Card({ onMatch }) {
-  const photos = [
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=700&fit=crop',
-  ];
+  const photos = profilePhotos.length
+    ? profilePhotos
+    : [
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=700&fit=crop',
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=700&fit=crop',
+        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=700&fit=crop',
+        'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&h=700&fit=crop',
+        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=700&fit=crop',
+      ];
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,

@@ -13,16 +13,26 @@ const LINKS = {
   projectTwoLive: 'https://aireflection.vercel.app/login',
 };
 
-export default function Profile({ photo, name = 'Albert', age = 28 }) {
+export default function Profile({ photo, name = 'Albert', age = 19 }) {
   const [isDark, setIsDark] = useState(false);
 
-  const photos = [
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&h=700&fit=crop',
-    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=700&fit=crop',
-  ];
+  // Load images from src/profilephotos (place your photos there). Falls back to sample URLs.
+  const imageModules = import.meta.glob(
+    '../profilephotos/*.{JPG,JPEG,PNG,WEBP,SVG,jpg,jpeg,png,webp,svg}',
+    { eager: true }
+  );
+  let photos = Object.keys(imageModules)
+    .sort()
+    .map((key) => imageModules[key]?.default ?? imageModules[key]);
+  if (!photos || photos.length === 0) {
+    photos = [
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=700&fit=crop',
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=700&fit=crop',
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=700&fit=crop',
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&h=700&fit=crop',
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=700&fit=crop',
+    ];
+  }
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -67,7 +77,7 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className={`min-h-screen overflow-hidden bg-[#0b0b0d] ${isDark ? 'text-white' : 'text-black'}`}>
+    <div className={`min-h-screen overflow-hidden ${isDark ? 'bg-[#24262b] text-white' : 'bg-[#f6f6f1] text-black'}`}>
       <div className="mx-auto w-full max-w-2xl min-h-screen flex flex-col">
         <div className="relative h-[46vh] w-full overflow-hidden bg-neutral-950">
           {/* Photo carousel */}
@@ -79,6 +89,7 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                     src={photo}
                     alt={`Profile photo ${index + 1}`}
                     className="w-full h-full object-cover"
+                    style={index === 0 ? { objectPosition: '50% 35%' } : { objectPosition: 'center' }}
                     draggable={false}
                   />
                 </div>
@@ -99,34 +110,10 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
           </div>
 
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/55 to-transparent pointer-events-none" />
-          {/* Theme toggle placed on photo bottom-left */}
-            <div className="absolute left-4 bottom-4 z-30">
-            <button
-              aria-label="Toggle theme"
-              onClick={() => setIsDark((d) => !d)}
-              className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transform-gpu transition transition-transform transition-shadow duration-300 ease-out hover:scale-110 active:scale-95 hover:shadow-xl hover:brightness-95 active:brightness-90 cursor-pointer ${
-                isDark ? 'bg-white/10 text-white' : 'bg-white text-black'
-              }`}
-            >
-              {isDark ? '🌙' : '☀️'}
-            </button>
-          </div>
-
-          {/* Email/chat button on photo bottom-right */}
-          <div className="absolute right-4 bottom-4 z-30">
-            <a
-              href={LINKS.profileEmail}
-              aria-label="Email"
-              className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transform-gpu transition transition-transform transition-shadow duration-300 ease-out hover:scale-110 active:scale-95 hover:shadow-xl hover:brightness-95 active:brightness-90 cursor-pointer ${
-                isDark ? 'bg-white/10 text-white' : 'bg-white text-black'
-              }`}
-            >
-              ✉️
-            </a>
-          </div>
+          
         </div>
 
-        <div className={`flex-1 overflow-auto px-5 sm:px-6 py-6 ${isDark ? 'bg-[#0b0b0d]' : 'bg-white'}`}>
+        <div className={`flex-1 overflow-auto px-5 sm:px-6 py-6 ${isDark ? 'bg-[#1b1d22]' : 'bg-white'}`}>
           <div className="max-w-xl mx-auto">
             {/* Name, Age */}
             <div className="mb-4">
@@ -182,7 +169,7 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
             <div className="mb-6">
               <h2 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-black'} mb-3`}>My Projects</h2>
               <div className="flex flex-col gap-4">
-                <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} rounded-lg p-6 border backdrop-blur-sm transform-gpu transition-transform duration-200 hover:scale-[1.02]`}>
+                <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} rounded-lg p-6 border backdrop-blur-sm transform-gpu transition-transform duration-200 hover:scale-[1.02] shadow-sm hover:shadow-lg ${isDark ? 'ring-1 ring-white/6' : 'ring-1 ring-indigo-100/60'} ${isDark ? 'soft-glow-dark' : 'soft-glow-light'}`}>
                   <div className="flex items-start gap-4">
                     <div className="text-3xl">🎨</div>
                     <div className="flex-1">
@@ -198,33 +185,33 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                           href={LINKS.projectOneGitHub}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Project GitHub"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.335-5.467-5.93 0-1.31.468-2.382 1.235-3.222-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.807 5.624-5.48 5.92.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
                           </svg>
-                          <span className="text-sm font-medium">View on GitHub</span>
+                          <span className="hidden md:inline text-xs md:text-sm font-medium">View on GitHub</span>
                         </a>
 
                         <a
                           href={LINKS.projectOneLive}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Live demo"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                           </svg>
-                          <span className="text-sm font-medium">View Live</span>
+                          <span className="hidden md:inline text-xs md:text-sm font-medium">View Live</span>
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} rounded-lg p-6 border backdrop-blur-sm transform-gpu transition-transform duration-200 hover:scale-[1.02]`}>
+                <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} rounded-lg p-6 border backdrop-blur-sm transform-gpu transition-transform duration-200 hover:scale-[1.02] shadow-sm hover:shadow-lg ${isDark ? 'ring-1 ring-white/6' : 'ring-1 ring-indigo-100/60'} ${isDark ? 'soft-glow-dark' : 'soft-glow-light'}`}>
                   <div className="flex items-start gap-4">
                     <div className="text-3xl">🧠</div>
                     <div className="flex-1">
@@ -240,26 +227,26 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                           href={LINKS.projectTwoGitHub}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Project GitHub"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.335-5.467-5.93 0-1.31.468-2.382 1.235-3.222-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.807 5.624-5.48 5.92.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
                           </svg>
-                          <span className="text-sm font-medium">View on GitHub</span>
+                          <span className="hidden md:inline text-xs md:text-sm font-medium">View on GitHub</span>
                         </a>
 
                         <a
                           href={LINKS.projectTwoLive}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Live demo"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                           </svg>
-                          <span className="text-sm font-medium">View Live</span>
+                          <span className="hidden md:inline text-xs md:text-sm font-medium">View Live</span>
                         </a>
                       </div>
                     </div>
@@ -273,11 +260,11 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
             {/* Currently Working On */}
             <div className="mb-8">
               <h2 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-black'} mb-3`}>Currently working on...</h2>
-              <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} rounded-lg p-6 border backdrop-blur-sm`}>
-                <ul className={`list-disc pl-5 space-y-4 text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  <li>data structures and algorithms</li>
-                  <li>building projects</li>
-                  <li>
+              <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} rounded-lg p-6 border backdrop-blur-sm transform-gpu transition-transform duration-200 hover:scale-[1.02] shadow-sm hover:shadow-lg ${isDark ? 'ring-1 ring-white/6' : 'ring-1 ring-indigo-100/60'} soft-glow`}>
+                <div className={`space-y-4 text-sm leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <p>grinding DSA</p>
+                  <p>vibecoding projects</p>
+                  <p>
                     making videos
                     <a
                       href={LINKS.profileInstagram}
@@ -288,8 +275,8 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                     >
                       <span className="font-bold underline">@albertetccc</span>
                     </a>
-                  </li>
-                </ul>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -298,7 +285,7 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
             {/* Connect with Me (GitHub, LinkedIn, Email) */}
             <div className="mb-12">
               <h2 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-black'} mb-3`}>Connect with Me</h2>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap justify-start items-center gap-4">
                 <a
                   href={LINKS.profileGitHub}
                   target="_blank"
@@ -347,7 +334,19 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
               </div>
             </div>
 
-            <div className="h-10 sm:h-12" />
+            <div className="mt-2 -mr-2 -mb-2 flex justify-end">
+              <button
+                aria-label="Toggle theme"
+                onClick={() => setIsDark((d) => !d)}
+                className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transform-gpu transition transition-transform transition-shadow duration-300 ease-out hover:scale-110 active:scale-95 hover:shadow-xl hover:brightness-95 active:brightness-90 cursor-pointer border ${
+                  isDark ? 'bg-white/10 border-white/20 text-white' : 'bg-white border-gray-200 text-black'
+                }`}
+              >
+                {isDark ? '🌙' : '☀️'}
+              </button>
+            </div>
+
+            <div className="h-2 sm:h-3" />
           </div>
         </div>
       </div>
