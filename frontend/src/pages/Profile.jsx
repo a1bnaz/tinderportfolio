@@ -117,7 +117,10 @@ export default function Profile({ photo, name = 'Albert', age = 19 }) {
           <div className="max-w-xl mx-auto">
             {/* Name, Age */}
             <div className="mb-4">
-              <h1 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>{name}, {age}</h1>
+              <h1 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>
+                <span className="font-bold">{name}</span>
+                <span className="font-normal text-current/90 ml-2">{age}</span>
+              </h1>
             </div>
 
             {/* Job / School / Location */}

@@ -203,7 +203,7 @@ export default function Card({ onMatch }) {
             <span className="absolute left-0 top-0 -translate-y-6 transform inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold shadow-sm border border-emerald-200">Active</span>
             <h2 className="text-4xl text-white">
               <span className="font-bold">Albert</span>
-              <span className="font-normal text-white/90 ml-2">, 19</span>
+              <span className="font-normal text-white/90 ml-2">19</span>
             </h2>
             <p className="text-gray-100 text-base mt-1">Student</p>
           </div>

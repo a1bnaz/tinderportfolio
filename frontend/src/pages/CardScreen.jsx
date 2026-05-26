@@ -37,7 +37,7 @@ export default function CardScreen() {
       {showProfile ? (
         // render Profile full-window (outside Phone)
         <div className="w-full min-h-screen">
-          <Profile photo={profilePhoto} name="Albert" age={28} onBack={() => setShowProfile(false)} />
+          <Profile photo={profilePhoto} name="Albert" age={19} onBack={() => setShowProfile(false)} />
         </div>
       ) : (
         <Phone>
