@@ -185,26 +185,26 @@ export default function Profile({ photo, name = 'Albert', age = 19 }) {
                           href={LINKS.projectOneGitHub}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-1.5 px-1.5 sm:px-2 py-1 rounded-md text-[10px] sm:text-xs md:text-sm whitespace-nowrap leading-none ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Project GitHub"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.335-5.467-5.93 0-1.31.468-2.382 1.235-3.222-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.807 5.624-5.48 5.92.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
                           </svg>
-                          <span className="hidden md:inline text-xs md:text-sm font-medium">View on GitHub</span>
+                          <span className="text-[10px] sm:text-xs md:text-sm font-medium whitespace-nowrap">View on GitHub</span>
                         </a>
 
                         <a
                           href={LINKS.projectOneLive}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-1.5 px-1.5 sm:px-2 py-1 rounded-md text-[10px] sm:text-xs md:text-sm whitespace-nowrap leading-none ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Live demo"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                           </svg>
-                          <span className="hidden md:inline text-xs md:text-sm font-medium">View Live</span>
+                          <span className="text-[10px] sm:text-xs md:text-sm font-medium whitespace-nowrap">View Live</span>
                         </a>
                       </div>
                     </div>
@@ -227,26 +227,26 @@ export default function Profile({ photo, name = 'Albert', age = 19 }) {
                           href={LINKS.projectTwoGitHub}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-1.5 px-1.5 sm:px-2 py-1 rounded-md text-[10px] sm:text-xs md:text-sm whitespace-nowrap leading-none ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Project GitHub"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.467-1.335-5.467-5.93 0-1.31.468-2.382 1.235-3.222-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.807 5.624-5.48 5.92.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
                           </svg>
-                          <span className="hidden md:inline text-xs md:text-sm font-medium">View on GitHub</span>
+                          <span className="text-[10px] sm:text-xs md:text-sm font-medium whitespace-nowrap">View on GitHub</span>
                         </a>
 
                         <a
                           href={LINKS.projectTwoLive}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs sm:text-sm whitespace-nowrap ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-1.5 px-1.5 sm:px-2 py-1 rounded-md text-[10px] sm:text-xs md:text-sm whitespace-nowrap leading-none ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Live demo"
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                             <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                           </svg>
-                          <span className="hidden md:inline text-xs md:text-sm font-medium">View Live</span>
+                          <span className="text-[10px] sm:text-xs md:text-sm font-medium whitespace-nowrap">View Live</span>
                         </a>
                       </div>
                     </div>
