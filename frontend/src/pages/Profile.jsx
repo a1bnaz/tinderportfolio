@@ -193,12 +193,12 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                         you're looking at it.
                       </p>
 
-                      <div className="mt-4 flex flex-wrap gap-3">
+                      <div className="mt-4 flex gap-2 flex-nowrap">
                         <a
                           href={LINKS.projectOneGitHub}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Project GitHub"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -211,7 +211,7 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                           href={LINKS.projectOneLive}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Live demo"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -235,12 +235,12 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                         an ai-powered journal that reads your entries and tells you how you're feeling. built w/ react, springboot, and jwt authentication.
                       </p>
 
-                      <div className="mt-4 flex flex-wrap gap-3">
+                      <div className="mt-4 flex gap-2 flex-nowrap">
                         <a
                           href={LINKS.projectTwoGitHub}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Project GitHub"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -253,7 +253,7 @@ export default function Profile({ photo, name = 'Albert', age = 28 }) {
                           href={LINKS.projectTwoLive}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
+                          className={`inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm ${isDark ? 'bg-white/6 text-white' : 'bg-gray-100 text-gray-800'} border transition hover:brightness-95 active:brightness-90 cursor-pointer`}
                           aria-label="Live demo"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
